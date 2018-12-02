@@ -1,6 +1,6 @@
 {
   "name": "geom-half-edge",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Half-Edge Mesh utils for simplical complex geometry",
   "main": "index.js",
   "license": "MIT",
