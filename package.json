@@ -1,0 +1,26 @@
+{
+  "name": "geom-half-edge",
+  "version": "1.0.0",
+  "description": "Half-Edge Mesh utils for simplical complex geometry",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Marcin Ignac",
+    "email": "marcin.ignac@gmail.com",
+    "url": "https://github.com/vorg"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vorg/geom-half-edge.git"
+  },
+  "homepage": "https://github.com/vorg/geom-half-edge",
+  "bugs": {
+    "url": "https://github.com/vorg/geom-half-edge/issues"
+  }
+}
