@@ -1,3 +1,5 @@
+const edgeLoop = require('./edgeLoop.js')
+
 function computeHalfEdges(faces) {
   var halfEdges = [];
 
@@ -37,6 +39,31 @@ function computeHalfEdges(faces) {
       curr.opposite = prev;
     }
   }
+
+  //fix edge vertex order by starting first edge
+  //with the same vertex as face itself which is quaranteed to be CCW
+  //this might have changed as we assign min/max indices for sorting above
+  halfEdges.forEach((e, i) => { e.visited = false })
+
+  faces.forEach((face) => {
+    var firstEdge = face.halfEdges[0]
+    if (firstEdge.v0 !== face[0]) {
+    	var tmp = firstEdge.v0
+      firstEdge.v0 = firstEdge.v1
+      firstEdge.v1 = tmp
+    }
+    var edge = firstEdge
+    var prevE = edge
+    edgeLoop(edge, (e, i) => {
+     if (i > 0 && prevE.v1 !== e.v0) {
+       var tmp = e.v0
+       e.v0 = e.v1
+       e.v1 = tmp
+     }
+     prevE = e
+   })
+  })
+  halfEdges.forEach((e, i) => { e.visited = false })
 
   return halfEdges;
 }
